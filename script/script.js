@@ -16,6 +16,19 @@ var header = document.querySelector('header');
 var laadButton = document.querySelector(".laadButton");
 var artikelSection = document.querySelector(".artikels");
 
+// teskt slide-in /*bron node pen*/ /*behulp van studentenassistent*/
+var observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("inbeeld");
+    }
+  });
+});
+
+document.querySelectorAll("h2, p").forEach((el) => {
+  observer.observe(el);
+});
+
 // Menu /*bron node pen*/
 openButton.addEventListener("click", function() {
   deNav.classList.add("toonMenu");
@@ -50,25 +63,6 @@ window.addEventListener("scroll", function() {
     header.classList.add("doorzichtig");
   }
 });
-
-// teskt slide-in /*bron node pen*/ /*behulp van studentenassistent*/
-if (window.location.pathname === "/" || window.location.pathname.endsWith("/index.html")) { //Hiermee kijk je naar de url waar de gebruiker op zit. als dit de index is, begint de functie pas met uitvoeren
-  var observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      var intersecting = entry.isIntersecting;
- 
-      console.log(entry);
-      if (intersecting) {
-        entry.target.classList.add("inbeeld");
-      }
-    });
-  });
- 
-  document.querySelectorAll("h2, p").forEach((el) => {
-    observer.observe(el);
-  });
-}
-
 
 
 // image zoom-in met scrollen 
