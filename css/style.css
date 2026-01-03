@@ -1,0 +1,446 @@
+/******************************/
+/*         CSS REMEDY         */
+/******************************/
+
+::before, ::after { 
+  box-sizing: border-box; 
+}
+
+body { 
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+
+/******************************/
+/*     CUSTOM PROPERTIES      */
+/******************************/
+:root {
+    --background-color:white;
+    --button-color: rgb(211, 26, 26);
+    --title-color: rgb(24 24 24);
+    --footer-background-color: rgb(38 38 38);
+    --p-color: rgb(70 70 70);
+    --section-p-color: white;
+    --footer-p-color: rgb(188 188 188);
+    --social-a-color: rgb(239 214 84);
+    --social-background-color: rgb(124 193 154);
+    --section-background-color: rgb(255 250 240);
+    --article-background: rgb(50,131,132);
+    --article-background-2: rgb(75,148,86);
+}
+
+
+@font-face {
+  font-family:'calibri-regular';
+  src:url('../font/calibri-regular.ttf');
+  font-weight:normal;
+  font-style:normal;
+}
+
+@font-face {
+  font-family:'grotesque-bold';
+  src:url('../font/Grotesque-Bold-Extended.ttf');
+  font-weight:normal;
+  font-style:normal;
+}
+
+@font-face {
+  font-family:'grotesque-regular';
+  src:url('../font/Grotesque-Light-Condensed.ttf');
+  font-weight:normal;
+  font-style:normal;
+}
+
+
+
+
+/******************************/
+/*     ALGEMENE STIJLEN       */
+/******************************/
+
+hr {
+  border: 0.1px solid;
+  opacity: 0.2;
+}
+
+
+h1 {
+    font-family:'grotesque-bold', sans-serif;
+    font-size: 3em;
+    text-transform:uppercase;
+    margin: 0;
+    color:var(--section-p-color);
+}
+
+
+h2 {
+    font-family:'grotesque-bold', sans-serif;
+    text-transform:uppercase;
+    color:var(--title-color);
+    margin: 0;
+}
+
+
+p {
+    font-family:'calibri-regular', sans-serif;
+    font-size: 1.1em;
+    font-weight: light;
+    color: var(--p-color);
+    padding-right: 1.5em;
+    margin-bottom: 1em;
+}
+
+section p:first-of-type {
+  font-family: 'grotesque-regular', sans-serif;
+  font-size: 1em;
+  text-transform:uppercase;
+}
+
+section li a{
+  text-transform:uppercase;
+  font-family: 'grotesque-regular', sans-serif;
+  font-size: 1.5em;
+  font-weight: bold;
+  color:var(--title-color);
+  text-decoration: none; 
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+section ul{
+  display: block;
+  list-style-type: none;
+}
+
+section > a, section > div > a, section > div > div > a { /*behulp van studentenassistent*/
+  text-transform:uppercase;
+  font-family:'grotesque-bold', sans-serif;
+  text-decoration: none; 
+  display: inline-block;
+  font-size: 0.7em;
+  padding: 1.5em 4em;
+  margin-top: 1em;
+}
+
+
+/******************************/
+/*           HEADER           */
+/******************************/ /*bron node pen*/ /*behulp van studentenassistent*/
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000; /*bron chatGPT*/
+}
+
+header.wit {
+  background-color: var(--section-p-color);
+}
+
+header.wit ul a {
+  color:var(--title-color);
+}
+
+header.wit ul a:hover {
+  color:var(--button-color);
+}
+
+header.wit nav div:nth-of-type(2) a img {
+  content:url('../img/Bacardi-Logo-Black.svg');
+}
+
+header.doorzichtig {
+  background-color: transparent;
+}
+
+header.doorzichtig ul a:hover{
+  color:var(--button-color);
+}
+
+header button {
+  border: none;
+  background: none;
+}
+
+header li {
+  list-style-type: none;
+}
+
+header ul li a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'grotesque-bold', sans-serif;
+  color: var(--title-color);
+  font-size: 1.5em;
+}
+
+
+/* =========================
+   laptop versie
+   ========================= */
+
+@media (min-width: 800px) {
+  header nav {
+    padding: 2em;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  header nav div:nth-of-type(2){
+    width: max-content;
+  }
+
+  header nav div:nth-of-type(2) a img{
+    padding-left: 2em;
+  }
+
+
+  header ul:last-of-type, header > nav > div:nth-of-type(1), header > nav > div:nth-of-type(2) button, nav hr {
+    display: none;
+  }
+
+    header ul{
+    display: flex;
+    gap: 2em;
+    margin-right: 3em;
+    align-items: end; 
+    justify-content: end;
+    width: max-content;
+    }
+
+    header ul li a{
+    font-size: 0.8em; 
+    color: var(--section-p-color);
+  } 
+
+    header ul li img{
+    align-items: left;   
+  }
+
+  header ul:first-of-type div {
+    align-self: flex-start;
+  }
+
+}
+
+/* =========================
+   default (menu dicht)
+   ========================= */
+@media (max-width: 800px) {
+  nav ul, div:nth-of-type(2) {
+    display: none;
+    transform: translate(100%);
+  }
+
+  nav > div:nth-of-type(1) {
+    background-color: var(--section-p-color);
+    padding: 2em 2em 1em 2em;
+    display: flex;
+  }
+
+  nav > div > button:first-of-type img {
+    width: 2em;
+    padding-left: 12em;
+  }
+
+  header.doorzichtig nav > div:nth-of-type(1) {
+    background-color: transparent;
+  }
+
+  header.wit nav > div:nth-of-type(1) {
+    background-color: var(--section-p-color);
+  }
+
+  header.wit nav > div:nth-of-type(1) button img{
+    content:url('../img/ic-burger-black.svg');
+  }
+
+  header.wit nav > div:nth-of-type(1) a img{
+    content:url('../img/Bacardi-Logo-Black.svg');
+  }
+}
+
+/* =========================
+   hamburger open (toonMenu actief)
+   ========================= */
+
+@media (max-width: 800px) {
+  nav.toonMenu {
+    transform:translate(-100%);
+    transition-duration: 0.7s;
+    position:absolute ;
+    z-index: 1000;
+    background-color: var(--section-p-color);
+    width: 100vw;
+  }
+
+  nav.toonMenu > div:first-of-type {
+    display: none;
+  }
+ 
+  nav.toonMenu ul {
+    display: block;
+    padding: 2em;
+  }
+
+  nav.toonMenu ul:nth-of-type(1) {
+    background-color: var(--section-p-color);
+  }
+
+  nav.toonMenu ul:nth-of-type(1) div {
+    margin-bottom: 3em;
+  }
+
+  nav.toonMenu ul li:nth-child(1) a {
+    margin-top: 7em;
+  }
+
+  nav.toonMenu > div:nth-of-type(2) a img {
+    content:url('../img/Bacardi-Logo-Black.svg');
+  }
+
+  nav.toonMenu ul:nth-of-type(1) li a {
+    line-height: 2.5em;
+  }
+
+  nav.toonMenu div {
+    display: flex;
+    padding-top: 2em;
+    padding-left: 2em;
+    background-color: var(--section-p-color);
+  }
+
+  nav.toonMenu button img {
+    height: 1.3em;
+  }
+
+  nav.toonMenu ul:last-of-type {
+    background-color: var(--title-color);
+    display: flex;
+    gap: 0.5em;
+  }
+
+  nav.toonMenu ul:nth-of-type(2) {
+    justify-content: center;
+  }
+
+  nav.toonMenu header nav ul:last-of-type li:last-child img {
+    width: 1.2em;
+  }
+}
+
+
+
+
+
+/******************************/
+/*           FOOTER           */
+/******************************/
+
+footer {
+  background-color: var(--footer-background-color);
+  padding-top: 3em;
+  align-items: start;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  align-items: start;
+}
+
+
+.footer-top {
+  margin: 3em;
+}
+
+.footer-top > ul:first-of-type {
+  display: flex;
+}
+
+.footer-top > ul:first-of-type li{
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-top li a{
+height: auto;
+}
+
+
+.footer-top li, .footer-top p{
+  font-family: 'grotesque-regular', sans-serif;
+  text-transform:uppercase;
+  text-decoration: none;
+  list-style: none;
+  color: var(--footer-p-color);
+}
+
+
+.footer-top a{
+  padding: 0;
+  text-decoration: none;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  font-size: 0.8em;
+  font-family:'grotesque-bold', sans-serif;
+}
+
+.footer-top ul img{
+  padding-right: 0;
+}
+
+.footer-top img{
+  width: 80%;
+  height: auto;
+  padding-right: 2em;
+  font-size: 2em;
+}
+
+.footer-top > p:first-of-type, a:first-of-type, ul:first-of-type {
+  grid-column: 1;
+}
+
+/*
+.footer-top > ul:nth-of-type(2) {
+  grid-row: 1;
+}
+
+.footer-top > ul:nth-of-type(3) {
+  grid-row: 1;
+}
+*/
+
+.footer-top h2 {
+  font-size: 2em;
+}
+
+.footer-top ul li:nth-of-type(4) {
+  width:10%;
+} 
+
+.footer-bottom {
+  background-color: var(--title-color);
+  padding: 2em;
+}
+
+.footer-bottom p {
+  font-size: 0.8em;
+  margin: 0;
+}
+
+.footer-bottom img{
+  width: 6em;
+  height: auto;
+  margin-bottom: 1em;
+}
+
+

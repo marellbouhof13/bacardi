@@ -1,0 +1,209 @@
+/******************************/
+/*       OVER ONS PAGINA      */
+/******************************/
+
+nav ul:first-of-type li:nth-of-type(4) a {
+  color: var(--button-color);
+}
+
+/******************************/
+/*         SECTION 1          */
+/******************************/
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+section:nth-of-type(1){
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    padding: 15em 0;
+    margin-top: -8em;
+}
+
+h1 {
+    margin: 0 8em 0 0.8em;
+    font-size: 7em;
+    line-height: 1em;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--section-p-color);
+}
+
+@media (max-width: 800px) {
+    h1 {
+        font-size: 3em;
+    }
+
+    section:nth-of-type(1) {
+        padding-top: 30em;
+        padding-bottom: em;
+    }
+}
+
+/******************************/
+/*         SECTION 2          */
+/******************************/ /* bron pixelfreestudio */
+/* Speciale styling voor artikel 16 */
+article:nth-of-type(16) {
+    display: grid;
+    grid-column: 1fr;
+    grid-template-rows: 5fr 0.5fr 0.5fr 1fr;
+    background-color: var(--section-p-color);
+}
+
+article:nth-of-type(16) img {
+    grid-row: 1 / 2;
+    grid-column: 1 / 3;
+}
+
+article:nth-of-type(16) h2 {
+    grid-row: 3;
+    grid-column: 1 / 3;
+}
+
+article:nth-of-type(16) p:nth-of-type(2) {
+    grid-row: 4;
+    grid-column: 1 / 3;
+    margin-top: 0;
+}
+
+article:nth-of-type(16) p:nth-of-type(1) {
+    margin-top: 1em;
+}
+
+article:nth-of-type(16) h2,
+article:nth-of-type(16) p {
+    color: var(--title-color);
+}
+
+/* styling voor andere artikels */
+section:nth-of-type(2) > h2:nth-of-type(1),
+section:nth-of-type(3) > h2 {
+    display: none;
+}
+
+section:nth-of-type(2) {
+    display: none;
+    background-color: var(--section-background-color);
+}
+
+section:nth-of-type(2).toonArtikels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5em;
+    padding: 2em;
+    justify-content: center;
+}
+
+@media (min-width: 800px) {
+    section:nth-of-type(2).toonArtikels {
+        padding: 5em;
+    }
+}
+
+article {
+    display: grid;
+    grid-template-rows: 1fr auto auto;
+    position: relative;
+    flex: 1 1 400px;
+    max-width: 30em;
+    height: 500px;
+    overflow: hidden;
+    clip-path: polygon(
+        4% 0%, 96% 0%, 100% 4%, 100% 96%,
+        96% 100%, 4% 100%, 0% 96%, 0% 4%
+        );
+}
+
+@media (max-width: 800px) {
+    article {
+        flex: 1 1 400px;
+    }
+}
+
+article img {
+    grid-row: 1 / -1;
+    grid-column: 1 / -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    z-index: 0;
+}
+
+article p,
+article h2 {
+    margin-top: 0;
+    position: relative;
+    z-index: 1;
+    color: var(--section-p-color);
+}
+
+article p {
+    grid-row: 2;
+    margin-left: 2em;
+}
+
+article h2 {
+    grid-row: 3;
+    margin-left: 1.3em;
+    margin-bottom: 1.5em;
+}
+
+/******************************/
+/*         SECTION 3          */
+/******************************/
+section:nth-of-type(3) {
+    background-color: var(--section-background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section:nth-of-type(3) button {
+    position: relative;
+    z-index: 1;
+    text-transform: uppercase;
+    font-family: 'grotesque-bold', sans-serif;
+    font-size: 0.7em;
+    padding: 1.5em 4em;
+    margin: 1em 0;
+    color: var(--button-color);
+    border: 2px solid var(--button-color);
+    text-align: center;
+    background-color: var(--section-background-color);
+    text-decoration: none;
+}
+
+section:nth-of-type(3) button:hover {
+    color: var(--section-p-color);
+}
+
+section:nth-of-type(3) button::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    background-color: var(--button-color);
+    transition: height 0.3s ease-in-out;
+    z-index: -1;
+}
+
+section:nth-of-type(3) button:hover::before {
+    height: 100%;
+}
+
+/******************************/
+/*           FOOTER           */
+/******************************/
+footer p, footer a, footer h2 {
+    color: var(--section-p-color);
+}
